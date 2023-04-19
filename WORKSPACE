@@ -62,17 +62,20 @@ rules_sass_dependencies()
 load("@io_bazel_rules_sass//sass:sass_repositories.bzl", "sass_repositories")
 sass_repositories()
 
-# Skydoc
-skydoc_version = "0.3.0" # update this as needed
+# Stardoc
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
 http_archive(
-    name = "io_bazel_skydoc",
-    sha256 = "8762a212cff5f81505a1632630edcfe9adce381479a50a03c968bd2fc217972d",
-    strip_prefix = "skydoc-{}".format(skydoc_version),
-    type = "zip",
-    url = "https://github.com/bazelbuild/skydoc/archive/{}.zip".format(skydoc_version),
-)
-load("@io_bazel_skydoc//skylark:skylark.bzl", "skydoc_repositories")
-skydoc_repositories()
+    name = "io_bazel_stardoc",
+    sha256 = "3fd8fec4ddec3c670bd810904e2e33170bedfe12f90adf943508184be458c8bb",
+    urls = [
+        "https://mirror.bazel.build/github.com/bazelbuild/stardoc/releases/download/0.5.3/stardoc-0.5.3.tar.gz",
+        "https://github.com/bazelbuild/stardoc/releases/download/0.5.3/stardoc-0.5.3.tar.gz",
+    ],
+ )
+
+load("@io_bazel_stardoc//:setup.bzl", "stardoc_repositories")
+stardoc_repositories()
 
 # For Skylint
 # Once https://github.com/bazelbuild/bazel/issues/4086 is done, this should be

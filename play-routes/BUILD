@@ -1,7 +1,7 @@
 # Borrowed from higherkindness/rules_scala
 
 load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
-load("@io_bazel_skydoc//stardoc:stardoc.bzl", "stardoc")
+load("@io_bazel_stardoc//stardoc:stardoc.bzl", "stardoc")
 load("@bazel_tools//tools/build_defs/pkg:pkg.bzl", "pkg_tar")
 load("@bazel_skylib//lib:paths.bzl", "paths")
 
