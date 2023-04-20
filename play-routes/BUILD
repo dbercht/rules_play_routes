@@ -17,12 +17,6 @@ load("@bazel_skylib//lib:paths.bzl", "paths")
     for file in glob(["**/*.bzl"])
 ]
 
-pkg_tar(
-    name = "docs",
-    srcs = [paths.replace_extension(file, ".md").replace("/", "_") for file in glob(["**/*.bzl"])],
-    mode = "0644",
-)
-
 bzl_library(
     name = "bzl_internal",
     srcs = glob(["**/*.bzl"]),
